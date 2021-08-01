@@ -38,8 +38,6 @@ const questions = [
         choices: ["Engineer", "Intern", "Manager"]
     }
     ]
-
-    // Questions for manager role
     managerQuestions = [
         {
             type: "input",
@@ -52,8 +50,6 @@ const questions = [
             }
         }
     ]
-
-    // Questions for engineer role
     engineerQuestions = [
         {
             type: "input",
@@ -67,8 +63,6 @@ const questions = [
               }
         }
     ]
-
-    // Questions for intern role
     internQuestions = [
 
         {
@@ -93,7 +87,6 @@ const questions = [
                 message: "It looks like the index.html file in the 'dist' folder already exists. Do you want to overwrite it?",
                 name: "overwrite"
             }).then(async (response) => {
-    
                 let overwrite = response.overwrite;
                 if (await overwrite === true) {
                     console.log("Please enter your team information:")
@@ -110,8 +103,7 @@ const questions = [
 
     // Function to create new employees
     const newEmployee = async () => {
-        await inquirer.prompt(questions)
-          .then((response) => {
+        await inquirer.prompt(questions).then((response) => {
             let name = response.name;
             let id = response.id;
             let email = response.email;
@@ -149,7 +141,6 @@ const questions = [
     
     };
 
-    // Function that asks if you would like to add an employee. This will keep coming up until you are finished. When you're finished and say no, it will generate the index.html file
     const addEmployee = async (array) => {
        await inquirer
         .prompt({
@@ -163,23 +154,12 @@ const questions = [
                 newEmployee();
             } 
             else if (await createEmployee === false) {
-            // If the dist directory does not exist, then it creates the dist directory before creating the index.html file
-            if (!fs.existsSync(fileDirectory)) {
-                fs.mkdirSync(fileDirectory)
-            }
-
-            // calls the renderHTML function in the generateHTML.js file to create the index.html
+            if (!fs.existsSync(fileDirectory)) {fs.mkdirSync(fileDirectory)}
             
             fs.writeFile(filePath, renderHTML(array), (err) => {
-        
-                if (err) {
-                    return console.log(err);
-                }
-                
-                // Success message
+                if (err) {return console.log(err);}
                 console.log("Your index.html file has been created in the 'dist' folder!");
             });
-
         }
     })
 };
