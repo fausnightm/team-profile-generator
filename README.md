@@ -23,12 +23,9 @@ Using Node.js, this application generates a profile of team members for a compan
 
 Below is a link to a video demo of the application. 
 
-[![Team Profile Generator Demo](./assets/images/demoscreenshot.jpg?raw=true)](https://youtu.be/ItXS4mn2ufc)
+[Screencast Link](https://drive.google.com/file/d/1rZ-zsa5enc7oujUTlJyAeErKl4bqP7sS/view)
 
-
-Click the image below for a video demonstration of the tests passing:
-
-[![Team Profile Test Passing Demo](./assets/images/demoyoutube.jpg?raw=true)](https://youtu.be/crwdQJ7V-A4)
+![Gif](./assets/images/gifrec.gif)
 
 ## Deployed application link
 
